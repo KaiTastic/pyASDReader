@@ -48,7 +48,14 @@ jobs:
     - name: Fetch all branches
       run: |
         git fetch origin main
-        git fetch origin dev
+
+        if git ls-remote --exit-code --heads origin dev >/dev/null 2>&1; then
+          git fetch origin dev
+        else
+          echo "⚠️ Remote 'dev' branch does not exist yet. Creating it from 'main'."
+          git push origin origin/main:refs/heads/dev
+          git fetch origin dev
+        fi
 
     - name: Check if this was a merge from dev
       id: check_source
