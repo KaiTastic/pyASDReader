@@ -46,9 +46,17 @@ jobs:
         git config user.email "github-actions[bot]@users.noreply.github.com"
 
     - name: Fetch all branches
+      id: fetch_branches
       run: |
         git fetch origin main
-        git fetch origin dev
+
+        if git ls-remote --exit-code --heads origin dev >/dev/null 2>&1; then
+          git fetch origin dev
+          echo "dev_exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "dev_exists=false" >> $GITHUB_OUTPUT
+          echo "⚠️ Remote 'dev' branch does not exist, skipping sync."
+        fi
 
     - name: Check if this was a merge from dev
       id: check_source
@@ -67,7 +75,7 @@ jobs:
 
     - name: Check branch divergence
       id: check_divergence
-      if: steps.check_source.outputs.is_dev_merge != 'true'
+      if: steps.check_source.outputs.is_dev_merge != 'true' && steps.fetch_branches.outputs.dev_exists == 'true'
       run: |
         # Check if main has commits not in dev
         AHEAD_COUNT=$(git rev-list --count origin/dev..origin/main)
@@ -289,6 +297,10 @@ jobs:
           echo "✅ **Status**: Skipped (merge from dev)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "This push was a merge from dev branch, no sync needed." >> $GITHUB_STEP_SUMMARY
+        elif [ "${{ steps.fetch_branches.outputs.dev_exists }}" == "false" ]; then
+          echo "✅ **Status**: Skipped (dev branch does not exist)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Remote 'dev' branch was not found, sync was skipped." >> $GITHUB_STEP_SUMMARY
         elif [ "${{ steps.check_divergence.outputs.diverged }}" == "false" ]; then
           echo "✅ **Status**: Already in sync" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
