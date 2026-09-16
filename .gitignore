@@ -6,6 +6,11 @@
 COMMIT_MESSAGE.txt
 FIXES_APPLIED.md
 
+# Documentation of Visual Paradigm
+*.lck
+*.bak
+*.vpp.bak_*
+
 # Python bytecode and cache
 __pycache__/
 *.py[cod]
