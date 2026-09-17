@@ -15,10 +15,10 @@ Demonstrates the fundamental operations with pyASDReader:
 **Usage:**
 
 ```bash
-python docs/users/examples/basic_usage.py
+python docs/users/examples/basic_usage.py tests/sample_data/v7sample/v7sample00000.asd
 ```
 
-**Note:** You need to modify the `file_path` variable in the script to point to your actual `.asd` file.
+Pass the path to an `.asd` file as the first command-line argument.
 
 ## Getting Test Data
 

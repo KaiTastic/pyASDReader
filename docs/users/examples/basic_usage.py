@@ -5,10 +5,14 @@ This script demonstrates how to read an ASD file and access its data.
 """
 
 from pyASDReader import ASDFile
+import sys
 
 def main():
-    # Replace with your actual .asd file path
-    file_path = "path/to/your/file.asd"
+    if len(sys.argv) != 2:
+        print(f"Usage: python {sys.argv[0]} path/to/file.asd")
+        return
+
+    file_path = sys.argv[1]
 
     print("=" * 60)
     print("pyASDReader - Basic Usage Example")
@@ -26,8 +30,7 @@ def main():
     # Access metadata
     if asd.metadata:
         print(f"\n3. Metadata:")
-        print(f"   - Instrument Model: {asd.metadata.instrumentModel}")
-        print(f"   - Instrument Type: {asd.metadata.instrumentType}")
+        print(f"   - Instrument: {asd.metadata.instrument}")
         print(f"   - File version: {asd.metadata.fileVersion}")
 
     # Access spectral data
@@ -51,9 +54,9 @@ def main():
         print(f"   - 2nd derivative: {'Yes' if asd.reflectance2ndDeriv is not None else 'No'}")
 
     # Access raw digital numbers
-    if asd.dn is not None:
+    if asd.digitalNumber is not None:
         print(f"\n7. Raw Data (DN):")
-        print(f"   - Shape: {asd.dn.shape}")
+        print(f"   - Shape: {asd.digitalNumber.shape}")
 
     print("\n" + "=" * 60)
     print("Example completed successfully!")

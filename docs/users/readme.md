@@ -91,8 +91,7 @@ fields depend on the instrument and ASD format version:
 
 ```python
 if asd.metadata is not None:
-		print(asd.metadata.instrumentModel)
-		print(asd.metadata.instrumentType)
+		print(asd.metadata.instrument)
 		print(asd.metadata.fileVersion)
 ```
 

@@ -6,6 +6,7 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/KaiTastic/pyASDReader/python-package.yml?branch=main&label=tests&style=flat-square)](https://github.com/KaiTastic/pyASDReader/actions)
 [![Coverage](https://img.shields.io/codecov/c/github/KaiTastic/pyASDReader?style=flat-square)](https://codecov.io/gh/KaiTastic/pyASDReader)
 [![Downloads](https://pepy.tech/badge/pyasdreader)](https://pepy.tech/project/pyasdreader)
+[![Documentation](https://img.shields.io/badge/docs-Read%20the%20Docs-ea580c?style=flat-square)](https://pyasdreader.readthedocs.io/)
 
 pyASDReader is a robust Python library designed to read and parse all versions (v1-v8) of ASD (Analytical Spectral Devices) binary spectral files. It provides seamless access to spectral data, metadata, and calibration information from various ASD instruments including FieldSpec, LabSpec, TerraSpec, and more.
 
@@ -62,6 +63,7 @@ pip install -e ".[all]"
 
 ## Documentation
 
+- **[Read the Docs](https://pyasdreader.readthedocs.io/)** - Full online documentation
 - **[CHANGELOG](CHANGELOG.md)** - Version history, feature updates, and bug fixes
 - **[Version Management Guide](docs/maintainers/VERSION_MANAGEMENT.md)** - Release workflow, branch strategy, and CI/CD automation
 - **[GitHub Issues](https://github.com/KaiTastic/pyASDReader/issues)** - Report bugs and request features
@@ -85,165 +87,6 @@ reflectance = asd_file.reflectance    # Reflectance values
 metadata = asd_file.metadata          # File metadata
 ```
 
-## Usage Examples
-
-### Basic Spectral Data Access
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-from pyASDReader import ASDFile
-
-# Load ASD file
-asd = ASDFile("sample_spectrum.asd")
-
-# Basic information
-print(f"File version: {asd.asdFileVersion}")
-print(f"Instrument: {asd.metadata.instrumentModel}")
-print(f"Number of channels: {len(asd.wavelengths)}")
-print(f"Spectral range: {asd.wavelengths[0]:.1f} - {asd.wavelengths[-1]:.1f} nm")
-
-# Plot spectrum
-plt.figure(figsize=(10, 6))
-plt.plot(asd.wavelengths, asd.reflectance)
-plt.xlabel('Wavelength (nm)')
-plt.ylabel('Reflectance')
-plt.title('ASD Spectrum')
-plt.grid(True)
-plt.show()
-```
-
-### Advanced Spectral Analysis
-
-```python
-# Access different spectral measurements
-reflectance = asd.reflectance                 # Raw reflectance
-abs_reflectance = asd.absoluteReflectance     # Absolute reflectance
-radiance = asd.radiance                       # Radiance data
-irradiance = asd.irradiance                   # Irradiance data
-
-# Derivative calculations
-refl_1st_deriv = asd.reflectance1stDeriv      # First derivative
-refl_2nd_deriv = asd.reflectance2ndDeriv      # Second derivative
-
-# Log(1/R) transformations
-log1r = asd.log1R                             # Log(1/R)
-log1r_1st_deriv = asd.log1R1stDeriv          # Log(1/R) first derivative
-log1r_2nd_deriv = asd.log1R2ndDeriv          # Log(1/R) second derivative
-```
-
-### Error Handling and Validation
-
-```python
-from pyASDReader import ASDFile
-import os
-
-def safe_read_asd(file_path):
-    """Safely read ASD file with error handling."""
-    try:
-        # Check if file exists
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"ASD file not found: {file_path}")
-        
-        # Load the file
-        asd = ASDFile(file_path)
-        
-        # Validate data
-        if asd.wavelengths is None or len(asd.wavelengths) == 0:
-            raise ValueError("Invalid or empty wavelength data")
-        
-        if asd.reflectance is None or len(asd.reflectance) == 0:
-            raise ValueError("Invalid or empty reflectance data")
-        
-        print(f"✓ Successfully loaded: {os.path.basename(file_path)}")
-        print(f"  Channels: {len(asd.wavelengths)}")
-        print(f"  Range: {asd.wavelengths[0]:.1f}-{asd.wavelengths[-1]:.1f} nm")
-        
-        return asd
-        
-    except Exception as e:
-        print(f"✗ Error loading {file_path}: {str(e)}")
-        return None
-
-# Usage
-asd_file = safe_read_asd("spectrum.asd")
-if asd_file is not None:
-    # Process the file
-    pass
-```
-
-### Batch Processing
-
-```python
-import glob
-from pathlib import Path
-
-def process_asd_directory(directory_path, output_format='csv'):
-    """Process all ASD files in a directory."""
-    asd_files = glob.glob(os.path.join(directory_path, "*.asd"))
-    
-    print(f"Found {len(asd_files)} ASD files")
-    
-    for file_path in asd_files:
-        try:
-            asd = ASDFile(file_path)
-            
-            # Extract filename without extension
-            base_name = Path(file_path).stem
-            
-            if output_format == 'csv':
-                # Save as CSV
-                output_path = f"{base_name}_spectrum.csv"
-                data = np.column_stack([asd.wavelengths, asd.reflectance])
-                np.savetxt(output_path, data, delimiter=',', 
-                          header='Wavelength(nm),Reflectance', comments='')
-                print(f"✓ Saved: {output_path}")
-                
-        except Exception as e:
-            print(f"✗ Error processing {file_path}: {str(e)}")
-
-# Usage
-process_asd_directory("./asd_data/", output_format='csv')
-```
-
-## API Reference
-
-### Core Classes
-
-#### `ASDFile`
-
-The main class for reading and parsing ASD files.
-
-**Constructor:**
-```python
-ASDFile(filepath: str = None)
-```
-
-The constructor reads the file immediately when `filepath` is provided. The
-library currently supports reading and parsing ASD files; it does not provide
-a supported write-back or update API.
-
-**Key Properties:**
-| Property | Type | Description |
-|----------|------|-------------|
-| `wavelengths` | `numpy.ndarray` | Wavelength array (nm) |
-| `reflectance` | `numpy.ndarray` | Reflectance values |
-| `absoluteReflectance` | `numpy.ndarray` | Absolute reflectance |
-| `radiance` | `numpy.ndarray` | Radiance data |
-| `irradiance` | `numpy.ndarray` | Irradiance data |
-| `reflectance1stDeriv` | `numpy.ndarray` | First derivative of reflectance |
-| `reflectance2ndDeriv` | `numpy.ndarray` | Second derivative of reflectance |
-| `log1R` | `numpy.ndarray` | Log(1/R) transformation |
-| `log1R1stDeriv` | `numpy.ndarray` | First derivative of Log(1/R) |
-| `log1R2ndDeriv` | `numpy.ndarray` | Second derivative of Log(1/R) |
-| `metadata` | `object` | File metadata and instrument info |
-| `asdFileVersion` | `int` | ASD file format version |
-
-**Methods:**
-```python
-read(filePath: str) -> bool
-  """Load and parse an ASD file; return False when it cannot be read."""
-```
 
 ## Technical Documentation
 
