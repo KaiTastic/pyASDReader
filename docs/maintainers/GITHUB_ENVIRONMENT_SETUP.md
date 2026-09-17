@@ -128,13 +128,13 @@ When a release is triggered:
 ## Screenshots Guide
 
 ### 1. Environment Creation
-![Environment setup](https://docs.github.com/assets/cb-24785/images/help/actions/environment-create.png)
+[Create an environment](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments#create-an-environment)
 
 ### 2. Protection Rules
-![Protection rules](https://docs.github.com/assets/cb-47896/images/help/actions/environment-deployment-protection-rules.png)
+[Configure deployment protection rules](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments#configuring-deployment-protection-rules)
 
 ### 3. Deployment Approval
-![Approval UI](https://docs.github.com/assets/cb-51508/images/help/actions/review-deployment.png)
+[Review deployments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/review-deployments)
 
 ## Troubleshooting
 

@@ -18,7 +18,7 @@ pyASDReader is a lightweight library for extracting spectral measurements, wavel
 
 [![PyPI version](https://img.shields.io/pypi/v/pyASDReader?style=flat-square)](https://pypi.org/project/pyASDReader/)
 [![Python versions](https://img.shields.io/pypi/pyversions/pyASDReader?style=flat-square)](https://pypi.org/project/pyASDReader/)
-[![Tests](https://img.shields.io/github/actions/workflow/status/KaiTastic/pyASDReader/python-package.yml?branch=main&label=tests&style=flat-square)](https://github.com/KaiTastic/pyASDReader/actions)
+[![Tests](https://github.com/KaiTastic/pyASDReader/actions/workflows/python-package.yml/badge.svg?branch=main&label=tests&style=flat-square)](https://github.com/KaiTastic/pyASDReader/actions)
 [![License](https://img.shields.io/github/license/KaiTastic/pyASDReader?style=flat-square)](https://github.com/KaiTastic/pyASDReader/blob/main/LICENSE)
 
 ## At A Glance
