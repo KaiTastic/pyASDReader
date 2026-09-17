@@ -7,6 +7,21 @@ description: Read and parse ASD binary spectral files with Python.
 
 **Read ASD (Analytical Spectral Devices) binary spectral files with Python.**
 
+```{toctree}
+:hidden:
+
+architecture/class-diagram/readme
+maintainers/CI_CD_WORKFLOWS
+maintainers/FALLBACK_API_TOKEN_SETUP
+maintainers/GITHUB_ENVIRONMENT_SETUP
+maintainers/IMPROVEMENTS_2025-10-07
+maintainers/RELEASE_EXAMPLES
+maintainers/TRUSTED_PUBLISHING_IMPLEMENTATION_SUMMARY
+maintainers/TROUBLESHOOTING_TRUSTED_PUBLISHING
+maintainers/TRUSTED_PUBLISHING_SETUP
+maintainers/VERSION_ROLLBACK
+```
+
 pyASDReader is a lightweight library for extracting spectral measurements, wavelength arrays, metadata, reference data, and calibration information from ASD files. It is designed for data workflows involving FieldSpec, LabSpec, TerraSpec, HandHeld, AgriSpec, and related instruments.
 
 [![PyPI version](https://img.shields.io/pypi/v/pyASDReader?style=flat-square)](https://pypi.org/project/pyASDReader/)
