@@ -1,6 +1,8 @@
 # API Token Fallback Setup
 
-Use this guide if Trusted Publishing is not available or as a temporary fallback.
+Use this guide only when Trusted Publishing is unavailable and you have
+deliberately chosen an API-token-based publishing workflow. The current
+production and TestPyPI workflows use OIDC Trusted Publishing.
 
 ## When to Use API Tokens
 
@@ -148,16 +150,11 @@ Once Trusted Publishing is working, migrate back:
 
 Follow [TRUSTED_PUBLISHING_SETUP](./TRUSTED_PUBLISHING_SETUP.md)
 
-### 2. Test with Both Methods
+### 2. Switch the Workflow Explicitly
 
-```yaml
-- name: Publish to PyPI
-  uses: pypa/gh-action-pypi-publish@release/v1
-  with:
-    password: ${{ secrets.PYPI_API_TOKEN }}  # Fallback
-    verbose: true
-# Trusted Publishing tries first, falls back to password if OIDC fails
-```
+Remove the `password` input and keep `permissions: id-token: write`. The PyPA
+action does not provide an implicit OIDC-to-password failover contract; choose
+one authentication method in the workflow and validate it with a release run.
 
 ### 3. Remove API Token
 

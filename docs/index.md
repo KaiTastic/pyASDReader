@@ -9,9 +9,11 @@ description: Read and parse ASD binary spectral files with Python.
 
 ```{toctree}
 :maxdepth: 3
+:hidden:
 
+users/readme
 developers/readme
-maintainers/index
+maintainers/readme
 ```
 
 pyASDReader is a lightweight library for extracting spectral measurements, wavelength arrays, metadata, reference data, and calibration information from ASD files. It is designed for data workflows involving FieldSpec, LabSpec, TerraSpec, HandHeld, AgriSpec, and related instruments.
@@ -130,14 +132,14 @@ Actual fields depend on the instrument model and the ASD file version. Treat opt
 ### For Users
 
 - [API and implementation overview](https://github.com/KaiTastic/pyASDReader#api-reference) - Core class, properties, and methods.
-- [Examples](https://github.com/KaiTastic/pyASDReader/tree/main/examples) - Small runnable usage examples.
+- [Examples](users/examples/README.md) - Small runnable usage examples.
 - [Changelog](https://github.com/KaiTastic/pyASDReader/blob/main/CHANGELOG.md) - Release history and behavior changes.
 
 ### For Contributors
 
 - [Contributing guide](https://github.com/KaiTastic/pyASDReader/blob/main/CONTRIBUTING.md) - Local setup, tests, and contribution workflow.
 - [Architecture notes](developers/readme.md) - Class design documentation.
-- [Version management](https://github.com/KaiTastic/pyASDReader/blob/main/VERSION_MANAGEMENT.md) - Release and versioning workflow.
+- [Version management](maintainers/VERSION_MANAGEMENT.md) - Release and versioning workflow.
 
 ### For Release Maintainers
 

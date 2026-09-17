@@ -15,7 +15,8 @@ pyASDReader uses four main workflows:
 
 ### 1. Python Package Testing (`python-package.yml`)
 
-**Trigger**: Push to any branch, Pull requests
+**Trigger**: Push to `main` and pull requests targeting `main`, limited to
+package, test, dependency, and workflow configuration paths.
 
 **Purpose**: Comprehensive testing across all supported environments
 
@@ -36,7 +37,7 @@ pyASDReader uses four main workflows:
 **Features**:
 - Fail-fast disabled (runs all combinations even if one fails)
 - Codecov integration for coverage tracking
-- Per-platform coverage flags
+- A required flake8 syntax/undefined-name check plus a non-blocking style report
 
 ### 2. TestPyPI Publishing (`publish-to-testpypi.yml`)
 
@@ -63,7 +64,7 @@ pyASDReader uses four main workflows:
 
 2. **Publish to TestPyPI**:
    - Download build artifacts
-   - Publish using PyPA action with API token
+   - Publish using PyPA action with OIDC Trusted Publishing
    - Skip if version already exists
 
 3. **Verify Installation** (15 jobs):
@@ -73,12 +74,9 @@ pyASDReader uses four main workflows:
    - Verify imports and package metadata
 
 **Path Filters**:
-Triggers on changes to:
-- `src/**`
-- `pyproject.toml`
-- `CHANGELOG.md`
-- `README.md`
-- Workflow file itself
+Triggers on changes to `src/**/*.py`, `pyproject.toml`,
+`.github/workflows/publish-to-testpypi.yml`, `setup.py`, `MANIFEST.in`, or
+`CHANGELOG.md`. Documentation and test-only changes do not trigger this workflow.
 
 ### 3. PyPI Production Publishing (`publish-to-pypi.yml`)
 

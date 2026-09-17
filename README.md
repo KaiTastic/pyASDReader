@@ -63,7 +63,7 @@ pip install -e ".[all]"
 ## Documentation
 
 - **[CHANGELOG](CHANGELOG.md)** - Version history, feature updates, and bug fixes
-- **[Version Management Guide](VERSION_MANAGEMENT.md)** - Release workflow, branch strategy, and CI/CD automation
+- **[Version Management Guide](docs/maintainers/VERSION_MANAGEMENT.md)** - Release workflow, branch strategy, and CI/CD automation
 - **[GitHub Issues](https://github.com/KaiTastic/pyASDReader/issues)** - Report bugs and request features
 - **[GitHub Discussions](https://github.com/KaiTastic/pyASDReader/discussions)** - Ask questions and share ideas
 
@@ -216,8 +216,12 @@ The main class for reading and parsing ASD files.
 
 **Constructor:**
 ```python
-ASDFile(file_path: str = None)
+ASDFile(filepath: str = None)
 ```
+
+The constructor reads the file immediately when `filepath` is provided. The
+library currently supports reading and parsing ASD files; it does not provide
+a supported write-back or update API.
 
 **Key Properties:**
 | Property | Type | Description |
@@ -237,8 +241,8 @@ ASDFile(file_path: str = None)
 
 **Methods:**
 ```python
-read(file_path: str) -> None
-    """Load and parse an ASD file."""
+read(filePath: str) -> bool
+  """Load and parse an ASD file; return False when it cannot be read."""
 ```
 
 ## Technical Documentation

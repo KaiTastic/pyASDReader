@@ -30,11 +30,18 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          source: ./docs
-          destination: ./_site
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install documentation dependencies
+        run: python -m pip install --upgrade pip && python -m pip install ".[docs]"
+
+      - name: Build with Sphinx
+        run: python -m sphinx -W -b html docs _site
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

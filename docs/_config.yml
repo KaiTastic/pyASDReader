@@ -1,9 +1,0 @@
-title: pyASDReader Documentation
-description: Documentation for reading and parsing ASD binary spectral files with Python.
-theme: jekyll-theme-minimal
-markdown: kramdown
-
-exclude:
-  - architecture/design/
-  - Gemfile
-  - Gemfile.lock

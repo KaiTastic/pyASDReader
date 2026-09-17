@@ -56,22 +56,19 @@ GitHub Environments provide:
 
 **Why this matters**: Ensures production releases only come from the main branch
 
-### Step 4: Add Environment Secrets
+### Step 4: Configure Environment Secrets (Only for Token Fallback)
 
-1. Scroll to **Environment secrets**
-2. Click **Add secret**
-3. Add your PyPI API token:
-   - Name: `PYPI_API_TOKEN`
-   - Value: Your PyPI API token
+The current production workflow uses PyPI Trusted Publishing (OIDC), so no
+PyPI token is required for the normal path. Only add `PYPI_API_TOKEN` here if
+you are deliberately switching the workflow to the documented token fallback.
 
 **Note**: Environment secrets override repository secrets when the environment is active.
 
 ### Step 5: Update Workflow Configuration
 
-The `publish-to-pypi.yml` workflow already has environment configuration commented out:
+The `publish-to-pypi.yml` workflow already enables the environment configuration:
 
 ```yaml
-# Uncomment these lines:
 environment:
   name: pypi-production
   url: https://pypi.org/project/pyASDReader/
@@ -85,17 +82,20 @@ publish-to-pypi:
   needs: [build]
   runs-on: ubuntu-latest
 
-  # Enable environment protection
   environment:
     name: pypi-production
     url: https://pypi.org/project/pyASDReader/
 
   permissions:
-    id-token: write  # Required for trusted publishing
+    id-token: write  # Required for Trusted Publishing
 
   steps:
-    # ... rest of the workflow
+    # The publish step uses OIDC; no password is required.
 ```
+
+  For the token-based alternative, follow [API token fallback](FALLBACK_API_TOKEN_SETUP.md)
+  and change the workflow deliberately; do not configure both methods assuming
+  that the action will automatically fail over between them.
 
 ### Step 6: Test the Setup
 

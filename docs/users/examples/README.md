@@ -15,7 +15,7 @@ Demonstrates the fundamental operations with pyASDReader:
 **Usage:**
 
 ```bash
-python examples/basic_usage.py
+python docs/users/examples/basic_usage.py
 ```
 
 **Note:** You need to modify the `file_path` variable in the script to point to your actual `.asd` file.
@@ -33,6 +33,6 @@ asd = ASDFile("tests/sample_data/v7sample/your_file.asd")
 
 ## Additional Resources
 
-- [Main README](../README.md) - Full documentation
-- [API Documentation](../README.md#usage-examples) - Detailed API usage
-- [CHANGELOG](../CHANGELOG.md) - Version history
+- [Main README](https://github.com/KaiTastic/pyASDReader#readme) - Full documentation
+- [API Documentation](https://github.com/KaiTastic/pyASDReader#api-reference) - Detailed API usage
+- [CHANGELOG](https://github.com/KaiTastic/pyASDReader/blob/main/CHANGELOG.md) - Version history

@@ -18,7 +18,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Added
 - 📚 **Documentation Section** - Added comprehensive documentation links in README.md
   - Link to CHANGELOG.md for version history and feature updates
-  - Link to VERSION_MANAGEMENT.md for release workflow and branch strategy
+  - Link to docs/maintainers/VERSION_MANAGEMENT.md for release workflow and branch strategy
   - Links to GitHub Issues and Discussions for community engagement
 
 ### Changed
