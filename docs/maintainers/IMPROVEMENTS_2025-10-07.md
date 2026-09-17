@@ -80,7 +80,7 @@ bash scripts/test_environment_setup.sh
 ### 📚 Documentation
 
 #### This Document
-**File**: `docs/IMPROVEMENTS_2025-10-07.md`
+**File**: `docs/maintainers/IMPROVEMENTS_2025-10-07.md`
 **Purpose**: Comprehensive changelog of all improvements
 **Sections**:
 - Changes summary
@@ -226,7 +226,7 @@ rm -f .github/workflows/notify-approval-needed.yml
 ### Created Files
 - `scripts/test_environment_setup.sh` (350 lines, environment verification)
 - `.github/workflows/notify-approval-needed.yml` (350 lines, notification workflow)
-- `docs/IMPROVEMENTS_2025-10-07.md` (This file)
+- `docs/maintainers/IMPROVEMENTS_2025-10-07.md` (This file)
 
 ### Deleted Files
 - `COMMIT_MESSAGE.txt`

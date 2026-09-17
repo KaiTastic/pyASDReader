@@ -70,8 +70,8 @@ Examples:
 
 Documentation:
   - VERSION_MANAGEMENT.md - Release workflow guide
-  - docs/RELEASE_EXAMPLES.md - Detailed examples
-  - docs/CI_CD_WORKFLOWS.md - CI/CD information
+    - docs/maintainers/RELEASE_EXAMPLES.md - Detailed examples
+    - docs/maintainers/CI_CD_WORKFLOWS.md - CI/CD information
 
 Manual Rollback (if needed):
   git checkout dev

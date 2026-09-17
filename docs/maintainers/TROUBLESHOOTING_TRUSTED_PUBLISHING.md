@@ -257,7 +257,7 @@ git push origin v1.2.3
 
 **Steps**:
 
-See [FALLBACK_API_TOKEN_SETUP.md](./FALLBACK_API_TOKEN_SETUP.md) for complete guide.
+See [FALLBACK_API_TOKEN_SETUP](./FALLBACK_API_TOKEN_SETUP.html) for complete guide.
 
 Quick version:
 
@@ -469,7 +469,7 @@ Copy the full error message from the failed step.
 
 ### 3. Review Documentation
 
-- [Trusted Publishing Setup Guide](./TRUSTED_PUBLISHING_SETUP.md)
+- [Trusted Publishing Setup Guide](./TRUSTED_PUBLISHING_SETUP.html)
 - [PyPI Trusted Publishers Docs](https://docs.pypi.org/trusted-publishers/)
 - [GitHub OIDC Docs](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 
@@ -485,10 +485,10 @@ Include:
 
 ## 🔗 Related Resources
 
-- [Main Setup Guide](./TRUSTED_PUBLISHING_SETUP.md)
-- [API Token Fallback Guide](./FALLBACK_API_TOKEN_SETUP.md)
-- [Version Management Guide](../VERSION_MANAGEMENT.md)
-- [CI/CD Workflows Documentation](./CI_CD_WORKFLOWS.md)
+- [Main Setup Guide](./TRUSTED_PUBLISHING_SETUP.html)
+- [API Token Fallback Guide](./FALLBACK_API_TOKEN_SETUP.html)
+- [Version Management Guide](https://github.com/KaiTastic/pyASDReader/blob/main/VERSION_MANAGEMENT.md)
+- [CI/CD Workflows Documentation](./CI_CD_WORKFLOWS.html)
 
 ---
 

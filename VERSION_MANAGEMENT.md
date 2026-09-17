@@ -2,8 +2,8 @@
 
 > **📚 New Documentation Structure**: This guide has been reorganized for better clarity.
 > - **This file**: Quick reference and core workflows
-> - **[docs/CI_CD_WORKFLOWS.md](docs/CI_CD_WORKFLOWS.md)**: Detailed CI/CD pipeline information
-> - **[docs/RELEASE_EXAMPLES.md](docs/RELEASE_EXAMPLES.md)**: Step-by-step release scenarios
+> - **[docs/maintainers/CI_CD_WORKFLOWS.md](docs/maintainers/CI_CD_WORKFLOWS.md)**: Detailed CI/CD pipeline information
+> - **[docs/maintainers/RELEASE_EXAMPLES.md](docs/maintainers/RELEASE_EXAMPLES.md)**: Step-by-step release scenarios
 
 ## Overview
 
@@ -591,7 +591,7 @@ pip index versions pyASDReader
 
 For critical issues requiring version rollback:
 
-See [VERSION_ROLLBACK.md](docs/VERSION_ROLLBACK.md) for:
+See [VERSION_ROLLBACK.md](docs/maintainers/VERSION_ROLLBACK.md) for:
 - Quick rollback procedure (10-15 minutes)
 - Detailed rollback steps
 - Post-rollback actions
@@ -606,8 +606,8 @@ See [VERSION_ROLLBACK.md](docs/VERSION_ROLLBACK.md) for:
 ## Additional Documentation
 
 - **[CONTRIBUTING.md](CONTRIBUTING.md)**: Contribution guidelines
-- **[VERSION_ROLLBACK.md](docs/VERSION_ROLLBACK.md)**: Emergency rollback procedures
-- **[GITHUB_ENVIRONMENT_SETUP.md](docs/GITHUB_ENVIRONMENT_SETUP.md)**: Production deployment protection
+- **[VERSION_ROLLBACK.md](docs/maintainers/VERSION_ROLLBACK.md)**: Emergency rollback procedures
+- **[GITHUB_ENVIRONMENT_SETUP.md](docs/maintainers/GITHUB_ENVIRONMENT_SETUP.md)**: Production deployment protection
 
 ## Automation and Tools
 
@@ -648,9 +648,9 @@ If you encounter "Trusted publishing exchange failure" errors:
    - Missing `id-token: write` permission
 
 3. **Detailed Guides**:
-   - [Trusted Publishing Setup](docs/TRUSTED_PUBLISHING_SETUP.md)
-   - [Troubleshooting Guide](docs/TROUBLESHOOTING_TRUSTED_PUBLISHING.md)
-   - [API Token Fallback](docs/FALLBACK_API_TOKEN_SETUP.md)
+   - [Trusted Publishing Setup](docs/maintainers/TRUSTED_PUBLISHING_SETUP.md)
+   - [Troubleshooting Guide](docs/maintainers/TROUBLESHOOTING_TRUSTED_PUBLISHING.md)
+   - [API Token Fallback](docs/maintainers/FALLBACK_API_TOKEN_SETUP.md)
 
 4. **Debug Workflow**:
    ```bash

@@ -270,8 +270,8 @@ deactivate && rm -rf test_env
 
 ## Additional Resources
 
-- [VERSION_MANAGEMENT.md](../VERSION_MANAGEMENT.md) - Normal release workflow
-- [RELEASE_EXAMPLES.md](RELEASE_EXAMPLES.md) - Release scenarios
+- [VERSION_MANAGEMENT.md](https://github.com/KaiTastic/pyASDReader/blob/main/VERSION_MANAGEMENT.md) - Normal release workflow
+- [RELEASE_EXAMPLES](RELEASE_EXAMPLES.html) - Release scenarios
 - [PyPI Package Management](https://pypi.org/manage/project/pyASDReader/)
 - [GitHub Releases](https://github.com/KaiTastic/pyASDReader/releases)
 

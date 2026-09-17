@@ -162,8 +162,8 @@ jobs:
           echo "  1. Compare OIDC token claims above with PyPI configuration"
           echo "  2. Verify all values match exactly (case-sensitive)"
           echo "  3. For production, use workflow: publish-to-pypi.yml"
-          echo "  4. See docs/TRUSTED_PUBLISHING_SETUP.md for detailed setup"
-          echo "  5. See docs/TROUBLESHOOTING_TRUSTED_PUBLISHING.md for common issues"
+          echo "  4. See docs/maintainers/TRUSTED_PUBLISHING_SETUP.md for detailed setup"
+          echo "  5. See docs/maintainers/TROUBLESHOOTING_TRUSTED_PUBLISHING.md for common issues"
           echo ""
 
       - name: Upload diagnostic report

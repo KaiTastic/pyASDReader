@@ -289,7 +289,7 @@ pip install pyASDReader==1.3.0.dev1
 
 ### Scenario: Critical Issue in v1.3.0, Need to Revert
 
-See [VERSION_ROLLBACK.md](VERSION_ROLLBACK.md) for complete rollback procedures.
+See [VERSION_ROLLBACK](VERSION_ROLLBACK.html) for complete rollback procedures.
 
 #### Quick Rollback Summary
 

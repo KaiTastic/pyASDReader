@@ -16,7 +16,7 @@ User encountered recurring "Trusted publishing exchange failure" errors when att
 
 ### Documentation (4 files created)
 
-1. **`docs/TRUSTED_PUBLISHING_SETUP.md`** (Complete Setup Guide)
+1. **`docs/maintainers/TRUSTED_PUBLISHING_SETUP.md`** (Complete Setup Guide)
    - Comprehensive step-by-step configuration instructions
    - PyPI and TestPyPI setup procedures
    - GitHub Environment configuration
@@ -25,7 +25,7 @@ User encountered recurring "Trusted publishing exchange failure" errors when att
    - Migration guide from API tokens
    - Configuration reference matrix
 
-2. **`docs/TROUBLESHOOTING_TRUSTED_PUBLISHING.md`** (Problem Solving Guide)
+2. **`docs/maintainers/TROUBLESHOOTING_TRUSTED_PUBLISHING.md`** (Problem Solving Guide)
    - Error message → solution matrix
    - Diagnostic flowchart
    - 8 detailed solution procedures
@@ -33,7 +33,7 @@ User encountered recurring "Trusted publishing exchange failure" errors when att
    - Configuration verification checklist
    - Emergency fallback procedures
 
-3. **`docs/FALLBACK_API_TOKEN_SETUP.md`** (Backup Method)
+3. **`docs/maintainers/FALLBACK_API_TOKEN_SETUP.md`** (Backup Method)
    - API Token generation guide
    - GitHub Secrets configuration
    - Workflow modifications
@@ -41,7 +41,7 @@ User encountered recurring "Trusted publishing exchange failure" errors when att
    - Security best practices
    - Comparison matrix: API Token vs Trusted Publishing
 
-4. **`docs/IMPROVEMENTS_2025-10-07.md`** (Earlier Implementation Log)
+4. **`docs/maintainers/IMPROVEMENTS_2025-10-07.md`** (Earlier Implementation Log)
    - Documents earlier STATE_FILE fix
    - Validation improvements
    - Environment verification tools
@@ -181,12 +181,13 @@ ASD_File_Reader/
 │       └── publish-to-testpypi.yml           [EXISTING] Test workflow
 │
 ├── docs/
-│   ├── TRUSTED_PUBLISHING_SETUP.md           [NEW] Complete setup guide
-│   ├── TROUBLESHOOTING_TRUSTED_PUBLISHING.md [NEW] Problem solving guide
-│   ├── FALLBACK_API_TOKEN_SETUP.md           [NEW] API Token backup method
-│   ├── IMPROVEMENTS_2025-10-07.md            [EXISTING] Earlier improvements
-│   ├── CI_CD_WORKFLOWS.md                    [EXISTING] Workflow documentation
-│   └── VERSION_ROLLBACK.md                   [EXISTING] Rollback procedures
+│   └── maintainers/
+│       ├── TRUSTED_PUBLISHING_SETUP.md           [NEW] Complete setup guide
+│       ├── TROUBLESHOOTING_TRUSTED_PUBLISHING.md [NEW] Problem solving guide
+│       ├── FALLBACK_API_TOKEN_SETUP.md           [NEW] API Token backup method
+│       ├── IMPROVEMENTS_2025-10-07.md            [EXISTING] Earlier improvements
+│       ├── CI_CD_WORKFLOWS.md                    [EXISTING] Workflow documentation
+│       └── VERSION_ROLLBACK.md                   [EXISTING] Rollback procedures
 │
 ├── scripts/
 │   ├── diagnose_trusted_publishing.sh        [NEW] Local diagnostic tool
@@ -281,9 +282,9 @@ open https://github.com/KaiTastic/pyASDReader/actions
 
 ### Documentation Links
 
-- **Setup**: `docs/TRUSTED_PUBLISHING_SETUP.md`
-- **Troubleshooting**: `docs/TROUBLESHOOTING_TRUSTED_PUBLISHING.md`
-- **API Token Fallback**: `docs/FALLBACK_API_TOKEN_SETUP.md`
+- **Setup**: `docs/maintainers/TRUSTED_PUBLISHING_SETUP.md`
+- **Troubleshooting**: `docs/maintainers/TROUBLESHOOTING_TRUSTED_PUBLISHING.md`
+- **API Token Fallback**: `docs/maintainers/FALLBACK_API_TOKEN_SETUP.md`
 - **Version Management**: `VERSION_MANAGEMENT.md` (see Troubleshooting section)
 
 ---
@@ -339,9 +340,9 @@ open https://github.com/KaiTastic/pyASDReader/actions
 
 ### Documentation Hierarchy
 
-1. **Start here**: `docs/TRUSTED_PUBLISHING_SETUP.md`
-2. **If issues**: `docs/TROUBLESHOOTING_TRUSTED_PUBLISHING.md`
-3. **For fallback**: `docs/FALLBACK_API_TOKEN_SETUP.md`
+1. **Start here**: `docs/maintainers/TRUSTED_PUBLISHING_SETUP.md`
+2. **If issues**: `docs/maintainers/TROUBLESHOOTING_TRUSTED_PUBLISHING.md`
+3. **For fallback**: `docs/maintainers/FALLBACK_API_TOKEN_SETUP.md`
 4. **For context**: `VERSION_MANAGEMENT.md`
 
 ### Getting Help
