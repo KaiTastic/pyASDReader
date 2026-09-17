@@ -10,7 +10,7 @@ description: Read and parse ASD binary spectral files with Python.
 ```{toctree}
 :maxdepth: 3
 
-developers/architecture/class-diagram/readme
+developers/readme
 maintainers/index
 ```
 
@@ -136,7 +136,7 @@ Actual fields depend on the instrument model and the ASD file version. Treat opt
 ### For Contributors
 
 - [Contributing guide](https://github.com/KaiTastic/pyASDReader/blob/main/CONTRIBUTING.md) - Local setup, tests, and contribution workflow.
-- [Architecture notes](developers/architecture/class-diagram/readme.md) - Class design documentation.
+- [Architecture notes](developers/readme.md) - Class design documentation.
 - [Version management](https://github.com/KaiTastic/pyASDReader/blob/main/VERSION_MANAGEMENT.md) - Release and versioning workflow.
 
 ### For Release Maintainers
