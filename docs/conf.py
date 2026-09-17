@@ -1,3 +1,5 @@
+# Configuration file for the Sphinx documentation builder.
+
 project = "pyASDReader"
 copyright = "2026, Kai Cao"
 author = "Kai Cao"
