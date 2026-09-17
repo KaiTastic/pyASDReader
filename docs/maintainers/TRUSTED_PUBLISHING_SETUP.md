@@ -529,7 +529,7 @@ After migration, rotate your old API token:
 - [PyPI Trusted Publishers Documentation](https://docs.pypi.org/trusted-publishers/)
 - [GitHub OIDC Documentation](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 - [PyPA Publish Action](https://github.com/pypa/gh-action-pypi-publish)
-- [Project Troubleshooting Guide](./TROUBLESHOOTING_TRUSTED_PUBLISHING.html)
+- [Project Troubleshooting Guide](./TROUBLESHOOTING_TRUSTED_PUBLISHING.md)
 
 ---
 
@@ -541,7 +541,7 @@ If you encounter issues:
 2. **Review logs**: Check GitHub Actions workflow logs
 3. **Compare configuration**: Use the Configuration Matrix above
 4. **Run debug workflow**: `gh workflow run debug-trusted-publishing.yml`
-5. **Consult troubleshooting**: See [TROUBLESHOOTING_TRUSTED_PUBLISHING](./TROUBLESHOOTING_TRUSTED_PUBLISHING.html)
+5. **Consult troubleshooting**: See [TROUBLESHOOTING_TRUSTED_PUBLISHING](./TROUBLESHOOTING_TRUSTED_PUBLISHING.md)
 6. **Open issue**: If problems persist, open a GitHub issue with diagnostic output
 
 ---

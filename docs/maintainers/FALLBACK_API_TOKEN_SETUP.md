@@ -146,7 +146,7 @@ Once Trusted Publishing is working, migrate back:
 
 ### 1. Configure Trusted Publishing
 
-Follow [TRUSTED_PUBLISHING_SETUP](./TRUSTED_PUBLISHING_SETUP.html)
+Follow [TRUSTED_PUBLISHING_SETUP](./TRUSTED_PUBLISHING_SETUP.md)
 
 ### 2. Test with Both Methods
 
@@ -282,8 +282,8 @@ gh run view --log
 
 ## Related Documentation
 
-- [Trusted Publishing Setup](./TRUSTED_PUBLISHING_SETUP.html) - Recommended primary method
-- [Troubleshooting Guide](./TROUBLESHOOTING_TRUSTED_PUBLISHING.html) - Common issues
+- [Trusted Publishing Setup](./TRUSTED_PUBLISHING_SETUP.md) - Recommended primary method
+- [Troubleshooting Guide](./TROUBLESHOOTING_TRUSTED_PUBLISHING.md) - Common issues
 - [Version Management](https://github.com/KaiTastic/pyASDReader/blob/main/VERSION_MANAGEMENT.md) - Release workflow
 
 ---

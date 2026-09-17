@@ -36,9 +36,9 @@ Token request failed
 
 | Symptom | Root Cause | Solution |
 |---------|------------|----------|
-| Token request failed | PyPI not configured | [Configure PyPI Trusted Publisher](#solution-1-configure-pypi) |
-| Audience claim mismatch | Wrong PyPI URL | [Update PyPA action](#solution-2-update-action) |
-| Subject claim mismatch | Config mismatch | [Fix configuration mismatch](#solution-3-fix-mismatch) |
+| Token request failed | PyPI not configured | [Configure PyPI Trusted Publisher](#solution-1-configure-pypi-trusted-publisher) |
+| Audience claim mismatch | Wrong PyPI URL | [Update PyPA action](#solution-2-update-pypa-action) |
+| Subject claim mismatch | Config mismatch | [Fix configuration mismatch](#solution-3-fix-configuration-mismatch) |
 
 ---
 
@@ -52,7 +52,7 @@ Error: Environment protection rules prevent this deployment
 | Symptom | Root Cause | Solution |
 |---------|------------|----------|
 | Waiting for approval | Manual approval required | [Approve deployment](#solution-4-approve-deployment) |
-| Branch not allowed | Tag on wrong branch | [Fix branch restriction](#solution-5-fix-branch) |
+| Branch not allowed | Tag on wrong branch | [Fix branch restriction](#solution-5-fix-branch-restriction) |
 | Reviewer not configured | No reviewers set | [Add reviewers](#solution-6-add-reviewers) |
 
 ---
@@ -66,8 +66,8 @@ Error: Unable to get OIDC token: id-token permission required
 
 | Symptom | Root Cause | Solution |
 |---------|------------|----------|
-| Permission missing | Missing `id-token: write` | [Add permission](#solution-7-add-permission) |
-| Forked repo | OIDC unsupported in forks | [Use API token instead](#solution-8-use-token) |
+| Permission missing | Missing `id-token: write` | [Add permission](#solution-7-add-id-token-permission) |
+| Forked repo | OIDC unsupported in forks | [Use API token instead](#solution-8-use-api-token-fallback) |
 
 ---
 
@@ -257,7 +257,7 @@ git push origin v1.2.3
 
 **Steps**:
 
-See [FALLBACK_API_TOKEN_SETUP](./FALLBACK_API_TOKEN_SETUP.html) for complete guide.
+See [FALLBACK_API_TOKEN_SETUP](./FALLBACK_API_TOKEN_SETUP.md) for complete guide.
 
 Quick version:
 
@@ -469,7 +469,7 @@ Copy the full error message from the failed step.
 
 ### 3. Review Documentation
 
-- [Trusted Publishing Setup Guide](./TRUSTED_PUBLISHING_SETUP.html)
+- [Trusted Publishing Setup Guide](./TRUSTED_PUBLISHING_SETUP.md)
 - [PyPI Trusted Publishers Docs](https://docs.pypi.org/trusted-publishers/)
 - [GitHub OIDC Docs](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 
@@ -485,10 +485,10 @@ Include:
 
 ## 🔗 Related Resources
 
-- [Main Setup Guide](./TRUSTED_PUBLISHING_SETUP.html)
-- [API Token Fallback Guide](./FALLBACK_API_TOKEN_SETUP.html)
+- [Main Setup Guide](./TRUSTED_PUBLISHING_SETUP.md)
+- [API Token Fallback Guide](./FALLBACK_API_TOKEN_SETUP.md)
 - [Version Management Guide](https://github.com/KaiTastic/pyASDReader/blob/main/VERSION_MANAGEMENT.md)
-- [CI/CD Workflows Documentation](./CI_CD_WORKFLOWS.html)
+- [CI/CD Workflows Documentation](./CI_CD_WORKFLOWS.md)
 
 ---
 

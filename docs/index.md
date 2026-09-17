@@ -129,22 +129,22 @@ Actual fields depend on the instrument model and the ASD file version. Treat opt
 ### For Contributors
 
 - [Contributing guide](https://github.com/KaiTastic/pyASDReader/blob/main/CONTRIBUTING.md) - Local setup, tests, and contribution workflow.
-- [Architecture notes](architecture/class-diagram/readme.html) - Class design documentation.
+- [Architecture notes](architecture/class-diagram/readme.md) - Class design documentation.
 - [Version management](https://github.com/KaiTastic/pyASDReader/blob/main/VERSION_MANAGEMENT.md) - Release and versioning workflow.
 
 ### For Release Maintainers
 
 These documents describe the release pipeline and are grouped under `docs/maintainers/` so release procedures remain separate from user-facing documentation.
 
-- [CI/CD workflows](maintainers/CI_CD_WORKFLOWS.html) - Test, build, TestPyPI, and PyPI workflows.
-- [Release examples](maintainers/RELEASE_EXAMPLES.html) - Normal, hotfix, pre-release, and manual release scenarios.
-- [GitHub Environment setup](maintainers/GITHUB_ENVIRONMENT_SETUP.html) - Production deployment protection and approval rules.
-- [Trusted Publishing setup](maintainers/TRUSTED_PUBLISHING_SETUP.html) - Token-less PyPI publishing with GitHub OIDC.
-- [Trusted Publishing troubleshooting](maintainers/TROUBLESHOOTING_TRUSTED_PUBLISHING.html) - Diagnostic checklist and common fixes.
-- [API token fallback](maintainers/FALLBACK_API_TOKEN_SETUP.html) - Backup authentication method when OIDC is unavailable.
-- [Version rollback](maintainers/VERSION_ROLLBACK.html) - Yank, hotfix, and emergency rollback procedures.
-- [Trusted Publishing implementation summary](maintainers/TRUSTED_PUBLISHING_IMPLEMENTATION_SUMMARY.html) - Historical implementation record and verification checklist.
-- [Version management improvements](maintainers/IMPROVEMENTS_2025-10-07.html) - Historical notes about release-system improvements.
+- [CI/CD workflows](maintainers/CI_CD_WORKFLOWS.md) - Test, build, TestPyPI, and PyPI workflows.
+- [Release examples](maintainers/RELEASE_EXAMPLES.md) - Normal, hotfix, pre-release, and manual release scenarios.
+- [GitHub Environment setup](maintainers/GITHUB_ENVIRONMENT_SETUP.md) - Production deployment protection and approval rules.
+- [Trusted Publishing setup](maintainers/TRUSTED_PUBLISHING_SETUP.md) - Token-less PyPI publishing with GitHub OIDC.
+- [Trusted Publishing troubleshooting](maintainers/TROUBLESHOOTING_TRUSTED_PUBLISHING.md) - Diagnostic checklist and common fixes.
+- [API token fallback](maintainers/FALLBACK_API_TOKEN_SETUP.md) - Backup authentication method when OIDC is unavailable.
+- [Version rollback](maintainers/VERSION_ROLLBACK.md) - Yank, hotfix, and emergency rollback procedures.
+- [Trusted Publishing implementation summary](maintainers/TRUSTED_PUBLISHING_IMPLEMENTATION_SUMMARY.md) - Historical implementation record and verification checklist.
+- [Version management improvements](maintainers/IMPROVEMENTS_2025-10-07.md) - Historical notes about release-system improvements.
 
 ## Development
 
