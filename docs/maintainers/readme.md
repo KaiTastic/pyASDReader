@@ -3,7 +3,7 @@
 This section collects the release, publishing, GitHub Actions, and rollback procedures for pyASDReader maintainers.
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 :caption: Maintainer documentation
 
 CI_CD_WORKFLOWS

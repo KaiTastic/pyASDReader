@@ -141,12 +141,15 @@ python -m sphinx -W -b html docs docs/_build/html
 
 ## Visual Paradigm source files
 
-<a href="https://www.visual-paradigm.com/"><img src="https://cdn-images.visual-paradigm.com/media/vplogo_72.png" alt="Visual Paradigm logo" width="120"></a>
+ The editable class-design source is maintained as a <a href="https://www.visual-paradigm.com/"><img src="https://cdn-images.visual-paradigm.com/media/vplogo_72.png" alt="Visual Paradigm logo" width="120"></a> project:
 
-The editable class-design source is maintained as a Visual Paradigm project:
+- `Core_Class_Design.vpp` is the primary project file. Open it with Visual Paradigm to inspect or update the class diagram and its model elements.
 
-- [`Core_Class_Design.vpp`](architecture/class_design/Core_Class_Design.vpp) is the primary project file. Open it with Visual Paradigm to inspect or update the class diagram and its model elements.
+   [Download the .vpp version](architecture/class_design/Core_Class_Design.vpp).
 
-![pyASDReader core class design](architecture/class_diagram/Core_Class_Design.jpg)
+![pyASDReader core class design](architecture/class_diagram/Core_Class_Design.svg)
 
-[Download the PDF version](architecture/class_diagram/Core_Class_Design.pdf).
+- Also provieded in the PDF format:
+
+  [Download the PDF version](architecture/class_diagram/Core_Class_Design.pdf).
+
