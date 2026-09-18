@@ -173,8 +173,8 @@ jobs:
 
     - name: Verify installation
       run: |
-        python -c "from pyASDReader import ASDFile; print('✓ Successfully imported ASDFile')"
-        python -c "from pyASDReader import __version__; print(f'✓ Package version: {__version__}')"
+        python -c "from pyASDReader import ASDFile; print('[OK] Successfully imported ASDFile')"
+        python -c "from pyASDReader import __version__; print(f'[OK] Package version: {__version__}')"
 
     - name: Smoke test - Basic functionality
       run: |
@@ -184,24 +184,24 @@ jobs:
 
         # Test 1: ASDFile class exists and has expected methods
         assert hasattr(ASDFile, '__init__'), "ASDFile should have __init__"
-        print("✓ ASDFile class structure valid")
+        print("[OK] ASDFile class structure valid")
 
         # Test 2: Version format is valid (semantic versioning or dev version)
         from pyASDReader import __version__
         # Allow both release (1.2.3) and dev (1.2.3.dev1+g7a8b9c0) versions
         assert re.match(r'^\d+\.\d+\.\d+', __version__), f"Version should start with semver format, got: {__version__}"
-        print(f"✓ Version format valid: {__version__}")
+        print(f"[OK] Version format valid: {__version__}")
 
         # Test 3: Key modules are importable
         try:
             from pyASDReader import constant
             from pyASDReader import file_attributes
-            print("✓ Core modules importable")
+          print("[OK] Core modules importable")
         except ImportError as e:
-            print(f"✗ Import error: {e}")
+          print(f"[ERROR] Import error: {e}")
             raise
 
-        print("\n✅ All smoke tests passed!")
+        print("\nAll smoke tests passed!")
         PYTHON_SCRIPT
 
     - name: Verify package metadata
