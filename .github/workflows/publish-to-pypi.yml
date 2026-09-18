@@ -3,7 +3,7 @@
 # Purpose: Automated production deployment with intelligent test optimization
 # Testing Strategy:
 #   - Conditional Testing: Reuses TestPyPI tests if available (within 7 days)
-#   - Complete Matrix: 15 combinations (3 OS × 5 Python versions: 3.8-3.12)
+#   - Complete Matrix: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)
 #   - Ensures full coverage of all declared supported Python versions
 #
 # Resource Optimization:
@@ -304,10 +304,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Test on 3 OS with all 5 supported Python versions (15 jobs total)
+        # Test on 3 OS with all 4 supported Python versions (12 jobs total)
         # Ensures complete coverage matching TestPyPI verification
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
 
     steps:
     - name: Set up Python ${{ matrix.python-version }}
@@ -417,7 +417,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
           echo "- **TestPyPI Run**: [#${{ needs.check-previous-test.outputs.testpypi_run_id }}](${{ needs.check-previous-test.outputs.testpypi_url }})" >> $GITHUB_STEP_SUMMARY
-          echo "- **Test Matrix**: 15 combinations (3 OS × 5 Python versions: 3.8-3.12)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Test Matrix**: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✨ Saved ~60 minutes of GitHub Actions time by reusing tests!" >> $GITHUB_STEP_SUMMARY
         elif [ "${{ needs.verify-installation.result }}" == "success" ]; then
@@ -426,7 +426,7 @@ jobs:
           echo "Full verification completed successfully on PyPI." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "- **Test Matrix**: 15 combinations (3 OS × 5 Python versions: 3.8-3.12)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Test Matrix**: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)" >> $GITHUB_STEP_SUMMARY
         else
           echo "### ⚠️ Verification Status: SKIPPED/FAILED" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY

@@ -22,7 +22,7 @@ package, test, dependency, and workflow configuration paths.
 
 **Test Matrix**:
 - 3 Operating Systems: Ubuntu, Windows, macOS
-- 5 Python Versions: 3.8, 3.9, 3.10, 3.11, 3.12
+- 4 Python Versions: 3.9, 3.10, 3.11, 3.12
 - **Total**: 15 test combinations
 
 **Duration**: ~15-20 minutes
@@ -49,7 +49,7 @@ package, test, dependency, and workflow configuration paths.
 
 **Test Matrix**:
 - 3 Operating Systems: Ubuntu, Windows, macOS
-- 5 Python Versions: 3.8, 3.9, 3.10, 3.11, 3.12
+- 4 Python Versions: 3.9, 3.10, 3.11, 3.12
 - **Total**: 15 verification jobs
 
 **Duration**: ~35 minutes

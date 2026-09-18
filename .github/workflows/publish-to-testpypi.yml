@@ -2,7 +2,7 @@
 #
 # Purpose: Automated testing and validation before production releases
 # Testing Strategy:
-#   - Complete Matrix: 15 combinations (3 OS × 5 Python versions: 3.8-3.12)
+#   - Complete Matrix: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)
 #   - Ensures full coverage of all declared supported Python versions
 #   - Matches production PyPI verification matrix
 #   - Results can be reused by PyPI workflow (7-day window)
@@ -115,10 +115,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Test on 3 OS with all 5 supported Python versions (15 jobs total)
+        # Test on 3 OS with all 4 supported Python versions (12 jobs total)
         # Ensures complete coverage for all declared supported versions
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
 
     steps:
     - name: Set up Python ${{ matrix.python-version }}

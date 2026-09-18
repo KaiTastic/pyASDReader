@@ -7,7 +7,7 @@ when changing the project. The complete contribution workflow is documented in
 
 ## Development setup
 
-The project supports Python 3.8 and newer. From the repository root, create a
+The project supports Python 3.9 and newer. From the repository root, create a
 virtual environment and install the package with its development dependencies:
 
 ```bash

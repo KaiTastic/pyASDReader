@@ -20,7 +20,7 @@ Install the latest release from PyPI:
 python -m pip install pyASDReader
 ```
 
-The package requires Python 3.8 or newer and NumPy 1.20 or newer.
+The package requires Python 3.9 or newer and NumPy 1.20 or newer.
 
 ## Read a file
 
