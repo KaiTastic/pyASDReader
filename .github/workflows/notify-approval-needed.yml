@@ -138,9 +138,9 @@ jobs:
               assignees: ['YOUR_GITHUB_USERNAME']  # Change to your username
             });
 
-            console.log(\`Created issue #\${issue.data.number}\`);
+            console.log(`Created issue #${issue.data.number}`);
           } else {
-            console.log(\`Issue already exists: #\${existingIssue.number}\`);
+            console.log(`Issue already exists: #${existingIssue.number}`);
           }
 
     # Close approval issue when deployment completes

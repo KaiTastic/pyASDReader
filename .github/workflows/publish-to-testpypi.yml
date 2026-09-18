@@ -196,9 +196,9 @@ jobs:
         try:
             from pyASDReader import constant
             from pyASDReader import file_attributes
-          print("[OK] Core modules importable")
+            print("[OK] Core modules importable")
         except ImportError as e:
-          print(f"[ERROR] Import error: {e}")
+            print(f"[ERROR] Import error: {e}")
             raise
 
         print("\nAll smoke tests passed!")
