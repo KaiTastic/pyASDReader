@@ -28,7 +28,7 @@ pyASDReader is a lightweight library for extracting spectral measurements, wavel
 - Supports ASD file format versions **v1 through v8**.
 - Exposes wavelength, reflectance, radiance, irradiance, reference, metadata, and calibration data.
 - Provides derived spectral values such as first and second derivatives and `log(1/R)` transformations.
-- Requires Python **3.8 or newer** and NumPy **1.20 or newer**.
+- Requires Python **3.9 or newer** and NumPy **1.20 or newer**.
 - Distributed under the [MIT License](https://github.com/KaiTastic/pyASDReader/blob/main/LICENSE).
 
 ## Installation

@@ -2,7 +2,7 @@
 #
 # Purpose: Comprehensive multi-platform testing for code quality and functionality
 # Testing Strategy:
-#   - Full Matrix: 15 combinations (3 OS × 5 Python versions: 3.8, 3.9, 3.10, 3.11, 3.12)
+#   - Full Matrix: 12 combinations (3 OS × 4 Python versions: 3.9, 3.10, 3.11, 3.12)
 #   - This provides exhaustive coverage for all supported platforms
 #   - Release workflows use a reduced matrix (3 OS × 3 versions) for faster verification
 #
@@ -64,7 +64,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]  # Stable versions only
+        python-version: ["3.9", "3.10", "3.11", "3.12"]  # Stable versions only
 
     runs-on: ${{ matrix.os }}
 
@@ -149,8 +149,8 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY
 
         # Create comprehensive matrix table header
-        echo "| Platform / Python Version | 3.8 | 3.9 | 3.10 | 3.11 | 3.12 |" >> $GITHUB_STEP_SUMMARY
-        echo "|----------------------------|-----|-----|------|------|------|" >> $GITHUB_STEP_SUMMARY
+        echo "| Platform / Python Version | 3.9 | 3.10 | 3.11 | 3.12 |" >> $GITHUB_STEP_SUMMARY
+        echo "|----------------------------|-----|------|------|------|" >> $GITHUB_STEP_SUMMARY
         
         # Function to check status and return appropriate emoji
         get_status() {
@@ -174,7 +174,7 @@ jobs:
           
           # Build the row
           row="| **${os_display}** |"
-          for py in 3.8 3.9 3.10 3.11 3.12; do
+          for py in 3.9 3.10 3.11 3.12; do
             status=$(get_status $os $py)
             row="$row $status |"
           done
@@ -197,7 +197,7 @@ jobs:
         failed_tests=0
         
         for os in ubuntu-latest windows-latest macos-latest; do
-          for py in 3.8 3.9 3.10 3.11 3.12; do
+          for py in 3.9 3.10 3.11 3.12; do
             total_tests=$((total_tests + 1))
             if [ -d "test-results-${os}-py${py}" ]; then
               passed_tests=$((passed_tests + 1))
@@ -219,9 +219,9 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "| Platform | Architecture | Runner Image | Python Versions Tested |" >> $GITHUB_STEP_SUMMARY
         echo "|----------|--------------|--------------|-------------------------|" >> $GITHUB_STEP_SUMMARY
-        echo "| 🐧 **Ubuntu Latest** | x86_64 | ubuntu-22.04 | 3.8, 3.9, 3.10, 3.11, 3.12 |" >> $GITHUB_STEP_SUMMARY
-        echo "| 🪟 **Windows Latest** | x86_64 | windows-2022 | 3.8, 3.9, 3.10, 3.11, 3.12 |" >> $GITHUB_STEP_SUMMARY
-        echo "| 🍎 **macOS Latest** | x86_64 | macos-12 | 3.8, 3.9, 3.10, 3.11, 3.12 |" >> $GITHUB_STEP_SUMMARY
+        echo "| 🐧 **Ubuntu Latest** | x86_64 | ubuntu-22.04 | 3.9, 3.10, 3.11, 3.12 |" >> $GITHUB_STEP_SUMMARY
+        echo "| 🪟 **Windows Latest** | x86_64 | windows-2022 | 3.9, 3.10, 3.11, 3.12 |" >> $GITHUB_STEP_SUMMARY
+        echo "| 🍎 **macOS Latest** | x86_64 | macos-12 | 3.9, 3.10, 3.11, 3.12 |" >> $GITHUB_STEP_SUMMARY
         
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "📊 **Test Artifacts:** Available in the Actions artifacts section" >> $GITHUB_STEP_SUMMARY

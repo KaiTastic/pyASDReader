@@ -538,7 +538,7 @@ class ASDFile(FileAttributes):
     def __parse_auditLogEvent(self: object, event: str) -> tuple:
         try:
             auditInfo = namedtuple('event', 'application appVersion name login time source function notes')
-            # Security note: xml.etree.ElementTree in Python 3.8+ has XXE protection by default
+            # Security note: xml.etree.ElementTree in Python 3.9+ has XXE protection by default
             # External entities and DTD processing are disabled automatically
             root = ET.fromstring(event)
             application = root.find('Audit_Application').text

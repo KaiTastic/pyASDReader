@@ -3,7 +3,7 @@
 # Purpose: Automated production deployment with intelligent test optimization
 # Testing Strategy:
 #   - Conditional Testing: Reuses TestPyPI tests if available (within 7 days)
-#   - Complete Matrix: 15 combinations (3 OS × 5 Python versions: 3.8-3.12)
+#   - Complete Matrix: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)
 #   - Ensures full coverage of all declared supported Python versions
 #
 # Resource Optimization:
@@ -304,10 +304,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Test on 3 OS with all 5 supported Python versions (15 jobs total)
+        # Test on 3 OS with all 4 supported Python versions (12 jobs total)
         # Ensures complete coverage matching TestPyPI verification
         os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
 
     steps:
     - name: Set up Python ${{ matrix.python-version }}
@@ -366,8 +366,8 @@ jobs:
 
     - name: Verify installation
       run: |
-        python -c "from pyASDReader import ASDFile; print('✓ Successfully imported ASDFile')"
-        python -c "from pyASDReader import __version__; print(f'✓ Package version: {__version__}')"
+        python -c "from pyASDReader import ASDFile; print('[OK] Successfully imported ASDFile')"
+        python -c "from pyASDReader import __version__; print(f'[OK] Package version: {__version__}')"
 
     - name: Smoke test - Basic functionality
       run: |
@@ -377,23 +377,23 @@ jobs:
 
         # Test 1: ASDFile class exists and has expected methods
         assert hasattr(ASDFile, '__init__'), "ASDFile should have __init__"
-        print("✓ ASDFile class structure valid")
+        print("[OK] ASDFile class structure valid")
 
         # Test 2: Version format is valid (semantic versioning)
         from pyASDReader import __version__
         assert re.match(r'^\d+\.\d+\.\d+', __version__), f"Version should be semver format, got: {__version__}"
-        print(f"✓ Version format valid: {__version__}")
+        print(f"[OK] Version format valid: {__version__}")
 
         # Test 3: Key modules are importable
         try:
             from pyASDReader import constant
             from pyASDReader import file_attributes
-            print("✓ Core modules importable")
+          print("[OK] Core modules importable")
         except ImportError as e:
-            print(f"✗ Import error: {e}")
+          print(f"[ERROR] Import error: {e}")
             raise
 
-        print("\n✅ All smoke tests passed!")
+        print("\nAll smoke tests passed!")
         PYTHON_SCRIPT
 
     - name: Verify package metadata
@@ -417,7 +417,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
           echo "- **TestPyPI Run**: [#${{ needs.check-previous-test.outputs.testpypi_run_id }}](${{ needs.check-previous-test.outputs.testpypi_url }})" >> $GITHUB_STEP_SUMMARY
-          echo "- **Test Matrix**: 15 combinations (3 OS × 5 Python versions: 3.8-3.12)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Test Matrix**: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✨ Saved ~60 minutes of GitHub Actions time by reusing tests!" >> $GITHUB_STEP_SUMMARY
         elif [ "${{ needs.verify-installation.result }}" == "success" ]; then
@@ -426,7 +426,7 @@ jobs:
           echo "Full verification completed successfully on PyPI." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "- **Test Matrix**: 15 combinations (3 OS × 5 Python versions: 3.8-3.12)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Test Matrix**: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)" >> $GITHUB_STEP_SUMMARY
         else
           echo "### ⚠️ Verification Status: SKIPPED/FAILED" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY

@@ -44,7 +44,7 @@ pyASDReader supports all ASD file format versions and instrument models:
 
 ## Requirements
 
-- Python >=3.8
+- Python >=3.9
 - numpy >=1.20.0
 
 ## Installation

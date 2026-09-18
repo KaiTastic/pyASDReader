@@ -229,7 +229,7 @@ See:
 2. Publishes to TestPyPI
 3. Runs comprehensive verification tests:
    - 3 operating systems: Ubuntu, Windows, macOS
-   - 5 Python versions: 3.8, 3.9, 3.10, 3.11, 3.12
+   - 4 Python versions: 3.9, 3.10, 3.11, 3.12
    - 15 total test combinations
 4. Duration: Approximately 35 minutes
 

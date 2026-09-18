@@ -28,8 +28,6 @@ comment:
   require_head: true
 
 flags:
-  ubuntu-latest-py3.8:
-    carryforward: false
   ubuntu-latest-py3.9:
     carryforward: false
   ubuntu-latest-py3.10:
@@ -38,8 +36,6 @@ flags:
     carryforward: false
   ubuntu-latest-py3.12:
     carryforward: false
-  windows-latest-py3.8:
-    carryforward: false
   windows-latest-py3.9:
     carryforward: false
   windows-latest-py3.10:
@@ -47,8 +43,6 @@ flags:
   windows-latest-py3.11:
     carryforward: false
   windows-latest-py3.12:
-    carryforward: false
-  macos-latest-py3.8:
     carryforward: false
   macos-latest-py3.9:
     carryforward: false
