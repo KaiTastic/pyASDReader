@@ -13,6 +13,17 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [1.2.4] - 2026-09-18
+
+### Added
+- 📚 **Documentation Improvements** - Expanded user and maintainer documentation, including Sphinx/Read the Docs configuration and corrected documentation links.
+
+### Changed
+- 🐍 **Python Version Support** - Updated the minimum supported Python version to 3.9 and synchronized the requirement across documentation and CI workflows.
+
+### Fixed
+- 🚀 **Release Workflow** - Corrected PyPI and TestPyPI publishing workflow configuration and standardized installation verification messages.
+
 ## [1.2.3] - 2025-10-07
 
 ### Added
