@@ -14,12 +14,22 @@ pyASDReader is a robust Python library designed to read and parse all versions (
 
 ## 🚀 Key Features
 
+pyASDReader supports all ASD file format versions and instrument models:
+
 - **Universal Compatibility**: Supports all ASD file versions (v1-v8) and instruments
-  - FieldSpec series (4 Hi-Res NG, 4 Hi-Res, 4 Standard-Res, 4 Wide-Res)
-  - LabSpec series (4 Bench, 4 Hi-Res, 4 Standard-Res)
-  - TerraSpec series (4 Hi-Res, 4 Standard-Res)
-  - HandHeld series (2 Pro, 2), AgriSpec, and more
-  
+
+    | **FieldSpec Series** | **LabSpec Series** | **TerraSpec Series** |
+    |---------------------|-------------------|---------------------|
+    | FieldSpec 4 Hi-Res NG | LabSpec 4 Bench | TerraSpec 4 Hi-Res |
+    | FieldSpec 4 Hi-Res | LabSpec 4 Hi-Res | TerraSpec 4 Standard-Res |
+    | FieldSpec 4 Standard-Res | LabSpec 4 Standard-Res | |
+    | FieldSpec 4 Wide-Res | LabSpec range | |
+
+    | **HandHeld Series** | **Other Models** |
+    |-------------------|------------------|
+    | HandHeld 2 Pro | AgriSpec |
+    | HandHeld 2 | |
+
 - **Comprehensive Data Access**: Extract all spectral information
   - Spectral data (reflectance, radiance, irradiance)
   - Wavelength arrays and derivative calculations
@@ -63,7 +73,12 @@ pip install -e ".[all]"
 
 ## Documentation
 
+### Full online documentation
+
 - **[Read the Docs](https://pyasdreader.readthedocs.io/)** - Full online documentation
+
+### Project documentation
+
 - **[CHANGELOG](CHANGELOG.md)** - Version history, feature updates, and bug fixes
 - **[Version Management Guide](docs/maintainers/VERSION_MANAGEMENT.md)** - Release workflow, branch strategy, and CI/CD automation
 - **[GitHub Issues](https://github.com/KaiTastic/pyASDReader/issues)** - Report bugs and request features
@@ -87,26 +102,7 @@ reflectance = asd_file.reflectance    # Reflectance values
 metadata = asd_file.metadata          # File metadata
 ```
 
-
 ## Technical Documentation
-
-### ASD File Format Support
-
-pyASDReader supports all ASD file format versions and instrument models:
-
-#### Supported Instruments
-
-| **FieldSpec Series** | **LabSpec Series** | **TerraSpec Series** |
-|---------------------|-------------------|---------------------|
-| FieldSpec 4 Hi-Res NG | LabSpec 4 Bench | TerraSpec 4 Hi-Res |
-| FieldSpec 4 Hi-Res | LabSpec 4 Hi-Res | TerraSpec 4 Standard-Res |
-| FieldSpec 4 Standard-Res | LabSpec 4 Standard-Res | |
-| FieldSpec 4 Wide-Res | LabSpec range | |
-
-| **HandHeld Series** | **Other Models** |
-|-------------------|------------------|
-| HandHeld 2 Pro | AgriSpec |
-| HandHeld 2 | |
 
 #### File Structure Mapping
 
