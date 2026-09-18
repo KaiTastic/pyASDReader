@@ -8,7 +8,7 @@
 #
 # Resource Optimization:
 #   - With test reuse: ~8 min (skips verification)
-#   - Without test reuse: ~35 min (runs 15 verification jobs)
+  #   - Without test reuse: ~35 min (runs 12 verification jobs)
 #   - Average savings: ~60 min per release with proper workflow
 #
 # Version number is automatically determined by setuptools-scm from the git tag
@@ -111,7 +111,7 @@ jobs:
           CREATED_AT=$(echo "$TESTPYPI_RUN" | jq -r '.created_at')
           HTML_URL=$(echo "$TESTPYPI_RUN" | jq -r '.html_url')
 
-          # Verify that the run included complete test matrix (15 verification jobs)
+          # Verify that the run included the complete test matrix (12 verification jobs)
           echo "📊 Verifying test completeness for run $RUN_ID..."
           VERIFY_JOBS=$(gh api \
             -H "Accept: application/vnd.github+json" \
@@ -120,17 +120,17 @@ jobs:
 
           SUCCESS_COUNT=$(echo "$VERIFY_JOBS" | grep -c "success" || echo "0")
 
-          if [ "$SUCCESS_COUNT" -ge 15 ]; then
+          if [ "$SUCCESS_COUNT" -ge 12 ]; then
             echo "✅ Found complete TestPyPI test for this commit"
             echo "   Run ID: $RUN_ID"
             echo "   Tested at: $CREATED_AT"
-            echo "   Successful jobs: $SUCCESS_COUNT/15"
+            echo "   Successful jobs: $SUCCESS_COUNT/12"
             echo "   URL: $HTML_URL"
             echo "tested=true" >> $GITHUB_OUTPUT
             echo "run_id=$RUN_ID" >> $GITHUB_OUTPUT
             echo "url=$HTML_URL" >> $GITHUB_OUTPUT
           else
-            echo "⚠️  TestPyPI test found but incomplete ($SUCCESS_COUNT/15 jobs passed)"
+            echo "⚠️  TestPyPI test found but incomplete ($SUCCESS_COUNT/12 jobs passed)"
             echo "   Will run full verification tests"
             echo "tested=false" >> $GITHUB_OUTPUT
           fi
@@ -219,6 +219,7 @@ jobs:
     - name: Publish to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
+        skip-existing: true
         verbose: true
         # Using OIDC Trusted Publishing (no password needed)
         # Configure at: https://pypi.org/manage/project/pyASDReader/settings/publishing/
@@ -410,6 +411,8 @@ jobs:
     steps:
     - name: Display verification status
       run: |
+        VERIFY_RESULT="${{ needs.verify-installation.result }}"
+
         if [ "${{ needs.check-previous-test.outputs.tested_on_testpypi }}" == "true" ]; then
           echo "### ✅ Verification Status: REUSED" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -420,13 +423,17 @@ jobs:
           echo "- **Test Matrix**: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✨ Saved ~60 minutes of GitHub Actions time by reusing tests!" >> $GITHUB_STEP_SUMMARY
-        elif [ "${{ needs.verify-installation.result }}" == "success" ]; then
+        elif [ "$VERIFY_RESULT" == "success" ]; then
           echo "### ✅ Verification Status: COMPLETED" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Full verification completed successfully on PyPI." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
           echo "- **Test Matrix**: 12 combinations (3 OS × 4 Python versions: 3.9-3.12)" >> $GITHUB_STEP_SUMMARY
+        elif [ "$VERIFY_RESULT" == "skipped" ]; then
+          echo "### ⚠️ Verification Status: SKIPPED" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Verification did not run because an upstream release job was skipped or failed." >> $GITHUB_STEP_SUMMARY
         else
           echo "### ⚠️ Verification Status: SKIPPED/FAILED" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
