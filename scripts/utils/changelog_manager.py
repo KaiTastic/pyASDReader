@@ -155,7 +155,7 @@ class ChangelogManager:
         # Write back
         self.write_changelog(new_content)
 
-        print(f"✓ Updated CHANGELOG.md:")
+        print("Updated CHANGELOG.md:")
         print(f"  - Moved {len(unreleased)} characters from [Unreleased]")
         print(f"  - Created section [{version}] - {release_date}")
 
@@ -244,11 +244,11 @@ def main():
         # Move unreleased to version
         if manager.move_unreleased_to_version(version, release_date):
             print()
-            print(f"✓ Successfully prepared CHANGELOG for version {version}")
+            print(f"Successfully prepared CHANGELOG for version {version}")
             sys.exit(0)
         else:
             print()
-            print("✗ Failed to update CHANGELOG")
+            print("Failed to update CHANGELOG")
             sys.exit(1)
 
     elif command == "get":

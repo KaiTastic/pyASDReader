@@ -556,25 +556,25 @@ def main():
 
     # Print results
     if errors:
-        print("❌ ERRORS:")
+        print("ERRORS:")
         for error in errors:
             print(f"  - {error}")
         print()
 
     if warnings:
-        print("⚠️  WARNINGS:")
+        print("WARNINGS:")
         for warning in warnings:
             print(f"  - {warning}")
         print()
 
     if success:
-        print("✅ Validation passed!")
+        print("Validation passed!")
         print()
         if warnings and not args.strict:
             print("Note: Warnings present but allowed in non-strict mode")
         sys.exit(0)
     else:
-        print("❌ Validation failed!")
+        print("Validation failed!")
         print()
         print("Please fix the errors above before releasing.")
         sys.exit(1)
